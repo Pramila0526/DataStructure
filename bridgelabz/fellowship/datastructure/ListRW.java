@@ -1,11 +1,7 @@
 package com.bridgelabz.fellowship.datastructure;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
+
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 
@@ -13,6 +9,7 @@ public class ListRW
 {
 	public static void main(String[] args) throws IOException 
 	{
+		@SuppressWarnings("resource")
 		FileReader fr=new FileReader("/home/admin94/Desktop/DataStructure(FP)/DataStructurePrograms/Ordered.txt");    
         int i;  
        
@@ -26,6 +23,7 @@ public class ListRW
 	
     System.out.println();
     System.out.println("Data in the Form of Array");
+	@SuppressWarnings("unused")
 	Integer[] data =  list.toArray(new Integer[list.size()]);
 	 System.out.println(Arrays.asList(list.toArray()));
 }

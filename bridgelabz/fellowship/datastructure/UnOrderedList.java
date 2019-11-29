@@ -1,10 +1,14 @@
 package com.bridgelabz.fellowship.datastructure;
 
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.*;
 
-public class UnOrderedList<T>
-{
+
+
+
+  public class UnOrderedList<T>
+  {
 	Node head;
 	public class Node
 	{
@@ -70,7 +74,7 @@ public class UnOrderedList<T>
 	public String search(T data)
 	{
 
-		Node temp=head;Node previous=null;
+		Node temp=head;
 		boolean flag=false;
 		if(temp!=null && temp.data==data)
 		{
@@ -116,11 +120,65 @@ public class UnOrderedList<T>
 		}
 	}
 	
+	public static String readFromFile(String file)
+	{
+		String text=" ";
+		try {
+			@SuppressWarnings("resource")
+			Scanner sc=new Scanner(new File(file));
+		while(sc.hasNext())
+		{
+			text+=sc.next()+"";
+		}
+		}
+		catch(FileNotFoundException e)
+		{
+			System.out.println("File doesn't Exists");
+		}
+		return text;
+		
+	}
+	
+	@SuppressWarnings({ "resource", "unused" })
+	public static String[] arrayToFile(String file)
+	{
+		int count=0;
+		try
+		{
+			Scanner sc=new Scanner(new File(file));
+			
+			while(sc.hasNext())
+			{
+				sc.next();
+				count++;
+				
+			}
+			String[] fileA=new String[count];
+			for(int i=0;i<fileA.length;i++)
+			{
+			Scanner sc1=new Scanner(new File(file));
+			{
+				fileA[i]=sc1.next();
+			}
+			return fileA;
+			
+		}
+		}
+			catch(FileNotFoundException e)
+			{
+				return null;
+			}
+		//return fileA;
+		return null;
+		
+			
+		}
+	 
 	/***Main Method****/
 	
 	public static void main(String args[])
 	{
-		UnOrderedList uo=new UnOrderedList();
+		UnOrderedList<String> uo=new UnOrderedList<String>();
 		System.out.println();
 		uo.insert("pramila");
 		uo.insert("xyz");
@@ -135,15 +193,6 @@ public class UnOrderedList<T>
 		uo.search("xyz");
 		uo.search("rty");
         uo.display();		
-     /* System.out.println("Enter Number of elements");
-      int n=Utility.IntegerInput();
-      String data[]=new String[n];
-      System.out.println("Enter the data in the Linked List");
-      for(int i=0;i<n;i++)
-      {
-    	  uo.insert(data[i]);
     
-      }*/
-     
 	}
 }

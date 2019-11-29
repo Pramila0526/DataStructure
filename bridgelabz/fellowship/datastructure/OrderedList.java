@@ -1,7 +1,5 @@
 package com.bridgelabz.fellowship.datastructure;
 
-import com.bridgelabz.fellowship.datastructure.UnOrderedList.Node;
-
 public class OrderedList<T extends Comparable<T>> {
 	Node head;
 
@@ -16,7 +14,7 @@ public class OrderedList<T extends Comparable<T>> {
 		}
 	}
 
-	public  void insert(T data)
+    public  void insert(T data)
 	{
 		Node new_node=new Node(data);
 		new_node.next=null;
@@ -34,6 +32,7 @@ public class OrderedList<T extends Comparable<T>> {
 		temp.next=new_node;
 	}
 	}
+  
 	public void delete(T data)
 	{
 		Node temp=head;
@@ -60,7 +59,7 @@ public class OrderedList<T extends Comparable<T>> {
 	public String search(T data)
 	{
 
-		Node temp=head;Node previous=null;
+		Node temp=head;
 		boolean flag=false;
 		if(temp!=null && temp.data==data)
 		{
@@ -135,10 +134,12 @@ public class OrderedList<T extends Comparable<T>> {
 			temp = temp.next;
 		}
 	}
-}
-
-	public static<T> void main(String[] args) {
-		OrderedList o = new OrderedList();
+	}
+	
+		public static<T> void main(String[] args) 
+	{
+		OrderedList<Integer> o = new OrderedList<Integer>();
+		
 		o.insert(3);
 		o.insert(5);
 		o.insert(2);
@@ -154,6 +155,8 @@ public class OrderedList<T extends Comparable<T>> {
 		System.out.println("\nElements after Sorting");
 		o.sort();
 		o.display();
-
-	}
+		o.insert(10);
+		o.display();
+		
+		}
 }
