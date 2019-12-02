@@ -2,15 +2,18 @@ package com.bridgelabz.fellowship.datastructure;
 
 import com.bridgelabz.fellowship.utility.Utility;
 
+import com.bridgelabz.fellowship.utility.StackForBalancedParenthesisUtility;
+
 public class StackBalanced
 {
 		
 		public static<T> void main(String[] args) 
 		{
 			
-			
-			Utility.StackBalancedParenthesis.check("{((a+b)(b=c))})");
-			if(Utility.StackBalancedParenthesis.empty())
+			System.out.println("Enter the String");
+			String ch=Utility.stringInput();
+			StackForBalancedParenthesisUtility.check(ch);
+			if(StackForBalancedParenthesisUtility.empty())
 			{
 				System.out.println("Parenthesis are Balanced");
 				

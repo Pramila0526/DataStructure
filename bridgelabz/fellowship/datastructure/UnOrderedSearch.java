@@ -123,7 +123,7 @@ public static String[] arrayToFile(String file)
 			while (sc.hasNextLine()) {
 				
 				count++;
-				sc.next();
+				sc.nextLine();
 
 			}
 			String[] fileA = new String[count];
@@ -131,7 +131,7 @@ public static String[] arrayToFile(String file)
 			Scanner sc1 = new Scanner(new File(file));
 			for (int i = 0; i < count; i++) 
 			{
-				fileA[i] = sc1.next();
+				fileA[i] = sc1.nextLine();
 			}
 				return fileA;
 		
@@ -174,9 +174,9 @@ catch (FileNotFoundException e) {
 		System.out.println("\nEnter the String in which You want to perform search Operation");
 		String searchKey = Utility.stringInput();
 
-		for (int i = 0; i < fileA.length; i++) 
+		for (int i = 0; i <= fileA.length; i++) 
 		{
-	      if ((fileA[i]).equals(searchKey))
+			if ((searchKey).equals(fileA[i])) // if ((fileA[i]).equals(searchKey))
 	       {
 				uo.delete(fileA[i]);
 				break;

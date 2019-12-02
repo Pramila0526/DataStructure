@@ -1,4 +1,4 @@
-package com.bridgelabz.fellowship.datastructure;
+package com.bridgelabz.fellowship.utility;
 
 public class OrderedList<T extends Comparable<T>> {
 	Node head;
@@ -153,6 +153,7 @@ public class OrderedList<T extends Comparable<T>> {
 		System.out.println("\nElements after search Operation");
 		o.display();
 		System.out.println("\nElements after Sorting");
+		System.out.println();
 		o.sort();
 		o.display();
 		o.insert(10);

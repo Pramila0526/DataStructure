@@ -1,108 +1,21 @@
 package com.bridgelabz.fellowship.utility;
-import java.util.*;
-
-public class Utility {
-
-	 static Scanner sc;
-
-	public static int integerInput() {
-		sc = new Scanner(System.in);
-		return sc.nextInt();
-	}
-
-	public static double doubleInput() {
-		sc = new Scanner(System.in);
-		return sc.nextDouble();
-	}
-
-	public static String stringInput() {
-		sc = new Scanner(System.in);
-		return sc.nextLine();
-	}
-	public static int longInput() {
-		sc = new Scanner(System.in);
-		return sc.nextInt();
-	}
 
 
-/*****Leap Year****/
 
-public static boolean leap2(int year) {
-	
-	boolean leap = false;
-	int length = String.valueOf(year).length();
-	// if(year>999 && year <10000)
-	if (length == 4) {
-		if (year % 4 == 0 || year % 400 == 0)// ||year%100!=0 ||year%10!=0)
-		{
-			leap = true;
-		} else if (year % 100 == 0 || year % 10 == 0) {
-			leap = false;
-		}
-		
-	}
-	return leap;
-}
-
-/*****Day Of Week****/
-
-public static int dayOfWeek(int Date, int month, int Year) {
-
-
-	int y0 = Year - (14 - month) / 12;
-	int x = y0 + y0 / 4 - y0 / 100 + y0 / 400;
-	int m0 = month + 12 * ((14 - month) / 12) - 2;
-	int d0 = (Date + x + 31 * m0 / 12) % 7;
-	return d0;
-	
-}
-
-/*****Prime in Range or Limit*****/
-public static int[] primeSeries(int num)
-{
-	   int i =0;
-    int j =0;
-    int k=0;
-   
-    int a[]=new int[num];
-    for (i = 1; i <=num ; i++)         
-    { 		  	  
- 	   int counter=0; 	  
- 	   for(j =i; j>=1; j--)
- 	   {
- 		   if(i%j==0)
- 		   {
- 			   counter = counter + 1;
- 		   }
- 	   }
- 	   if (counter ==2)
- 	   {
- 		  
- 		 a[k]=i;
- 		 
- 		   k++;
- 	   }	
-   }
-	return a;
-
-}
-/******Queue Using LinkedList*****/
-
-@SuppressWarnings("hiding")
-public  class QueueUsingLL<T>
+public  class QueueUsingLLUtility<T>
 {
 	       
 		public T data;                  
-		public QueueUsingLL<T> next;           
-		public QueueUsingLL<T> previous;       
+		public QueueUsingLLUtility<T> next;           
+		public QueueUsingLLUtility<T> previous;       
 	                                    
-		public QueueUsingLL() 
+		public QueueUsingLLUtility() 
 		 {                
 			this.next = null;           
 			this.previous = null;       
 		}                             
 	                                    
-		public QueueUsingLL(T d) 
+		public QueueUsingLLUtility(T d) 
 		{           
 			this.data = d;            
 			this.next = null;           
@@ -112,26 +25,30 @@ public  class QueueUsingLL<T>
 	   
 
 
-	QueueUsingLL<T> front;                     
-	   QueueUsingLL<T> rear;   
-	  int size=0;
-	  private QueueUsingLL<T> Node;    
+	@SuppressWarnings("rawtypes")
+	static QueueUsingLLUtility front;                     
+	@SuppressWarnings("rawtypes")
+	static QueueUsingLLUtility rear;   
+	  static int size=0;
+	  @SuppressWarnings("rawtypes")
+	private static QueueUsingLLUtility Node;    
 
 	 //Adding the element at the End
 	 
-	 public void enqueueRear(T data1)
+	 @SuppressWarnings("unchecked")
+	public static<T> void enqueueRear(T data1)
 	 {
 		 if (front == null)                                                                                        
 			{                                                                                                         
-			 QueueUsingLL<T> Node = new QueueUsingLL<T>(data1);                                                                      
+			 QueueUsingLLUtility<T> Node = new QueueUsingLLUtility<T>(data1);                                                                      
 				front = Node;                                                                                         
 				rear = front;                                                                                         
 			} else                                                                                                    
 			{                                                                                                         
 				 
-				QueueUsingLL<T> Node1 = new QueueUsingLL<T>(data1);                                                                     
+				QueueUsingLLUtility<T> Node1 = new QueueUsingLLUtility<T>(data1);                                                                     
 				rear.next = Node1;                                                                                    
-				Node1.previous = rear;                                                                                
+			   Node1.previous = rear;                                                                                
 				rear = Node1;                                                                                         
 			}                                                                                                         
 			size++;            
@@ -139,7 +56,8 @@ public  class QueueUsingLL<T>
 	 
     //Adding the element at the Front/
 	
-	 public  void enqueueFront(T data1)
+	 @SuppressWarnings("unchecked")
+	public static<T> void enqueueFront(T data1)
 	 {
 		
 		if(front==null)
@@ -162,7 +80,8 @@ public  class QueueUsingLL<T>
 	 
 	//Removing the element at the Front
 	 
-	 public T dequeueFront() {                                                                                      
+	 @SuppressWarnings("unchecked")
+	public static<T> T dequeueFront() {                                                                                      
 			T temp = null;                                                                                             
 			if (front == null) 
 			{                                                                                      
@@ -170,7 +89,7 @@ public  class QueueUsingLL<T>
 			}
 			else 
 			{                                                                                                  
-				temp = front.data;                                                                                     
+				temp = (T) front.data;                                                                                     
 				front = front.next;                                                                                   
 			}                                                                                                         
 			size--;                                                                                                   
@@ -179,7 +98,8 @@ public  class QueueUsingLL<T>
 	 
 	 //Removing the element at the Rear
 	 
-	 public T dequeueRear()                                                                                         
+	 @SuppressWarnings("unchecked")
+	public static<T> T dequeueRear()                                                                                         
 		{                                                                                                             
 			T temp = null;                                                                                             
 			if (front == null)                                                                                        
@@ -187,7 +107,7 @@ public  class QueueUsingLL<T>
 				System.out.println("**UnderFlow**No Elements to delete");                                                           
 			} else                                                                                                    
 			{                                                                                                         
-				temp = rear.data;                                                                                      
+				temp = (T) rear.data;                                                                                      
 				rear = rear.previous;                                                                                 
 				rear.next = null;                                                                                     
 			}                                                                                                         
@@ -208,92 +128,9 @@ public  class QueueUsingLL<T>
    }
 	 //Mothod to Print the Size
 	 
-	 public int size()
+	 public static int size()
 	 {
 		 return size;
 	 }
 	 
-}
-
-public static String[][] calendarFor2D(int month, int year) 
-{
-
-	String calender[][] = new String[7][7];
-	int day = Utility.dayOfWeek(1, month, year);
-	String dayofWeek[] = { "Sun", "Mond", "Tues", "Wedn", "Thurs", "Fri", "Sat" };
-	int daysofmonth[] = { 30, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-	
-	int days = daysofmonth[month];
-	int k = 1;
-	int flag = 0;
-	for (int i = 0; i < 7; i++) 
-	{
-		for (int j = 0; j < 7; j++) 
-		{
-			if (k <= days) 
-			{
-				if (i == 0)
-				{
-					calender[i][j] = dayofWeek[j];
-				} else if (day == j) 
-				{
-					calender[i][j] = String.valueOf(k);
-					day++;
-					k++;
-					flag = 1;
-				} else
-				{
-					calender[i][j] = "";
-				}
-			}
-			else
-			{
-				calender[i][j]="";
-			}
-
-		}
-		if (flag == 1) 
-		{
-			day = 0;
-		}
-
-	}
-	return calender;
- }
-
-public static<T> boolean isStringAnagram(T s12, T s22) 
-{
-        boolean status;
-	if (((String) s12).length() != ((String) s22).length())
-	{
-		return false;
-	}
-	char[] s1 = ((String) s12).toLowerCase().toCharArray();
-	char[] s2 = ((String) s22).toLowerCase().toCharArray();
-	Arrays.sort(s1);
-	Arrays.sort(s2);
-	status=Arrays.equals(s1,s2);
-	return status;
-	
-}
-/*****prime in 2d****/
-
-  public static int[][] primeIn2D(int primeNum[],int row,int column)
-	{
-		int array[][]=new int[row][column];	
-		int k=0;
-		for(int i=0;i<row;i++)
-		{
-			for(int j=0;j<column;j++)
-			{
-				array[i][j]=primeNum[k++];
-			}
-		}
-		return array;
-		
-		
-	}
- 
-	
-
 }

@@ -2,11 +2,11 @@ package com.bridgelabz.fellowship.datastructure;
 
 public class Stack<T>
 {
-	  int size=10;
-	  int top=-1;
-	  int a[]=new int[size];
+	  static int size=10;
+	  static int top=-1;
+	  static String a[]=new String[size];
 	
-	public void push(int data)
+	public static<T> void push(T s1)
 	{
 		if(top==size-1)
 		{
@@ -15,10 +15,10 @@ public class Stack<T>
 		else
 		{
 			top++;
-			a[top]=data;
+			a[top]=(String) s1;
 		}
 	}
-	public void pop()
+	public static void pop()
 	{
 		if(top==-1)
 		{
@@ -29,13 +29,14 @@ public class Stack<T>
 			top--;
 		}
 	}
-	public void display()
+	public static void display()
 	{
 		if(top>0)
 		{
 		for(int i=top;i>=0;i--)
 		{
-			System.out.println(a[i]+ "\n---");
+			System.out.println("|" +a[i]+ "|");
+			System.out.println("---");
 		}
 		}
 		else
@@ -44,21 +45,19 @@ public class Stack<T>
 		}
 	}
 	public static void main(String[] args) {
-		@SuppressWarnings("rawtypes")
-		Stack st=new Stack();
-		st.push(5);
-		st.push(6);
-		st.push(7);
+		Stack.push(5);
+		Stack.push(6);
+		Stack.push(7);
 		System.out.println();
 		System.out.println("=====Elements After PUSH Operation=====");
 		System.out.println();
-		st.display();
+		Stack.display();
 		
-		st.pop();
+		Stack.pop();
 		System.out.println();
 		System.out.println("=====Elements After POP Operation=====");
 		System.out.println();
-		st.display();
+		Stack.display();
 		
 		}
 }

@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import com.bridgelabz.fellowship.utility.OrderedList;
 import com.bridgelabz.fellowship.utility.Utility;
 
 public class OrderedLLRW 
@@ -18,7 +19,7 @@ public class OrderedLLRW
 		System.out.println(Arrays.toString(arrayNumber));
 
 		System.out.println("Enter the Number");
-		int number=Utility.IntegerInput();
+		int number=Utility.integerInput();
 		for(int i=0;i<arrayNumber.length;i++)
 		{
 			

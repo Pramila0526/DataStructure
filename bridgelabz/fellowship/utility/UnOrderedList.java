@@ -1,4 +1,4 @@
-package com.bridgelabz.fellowship.datastructure;
+package com.bridgelabz.fellowship.utility;
 
 import java.io.File;
 import java.io.FileNotFoundException;

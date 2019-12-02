@@ -92,8 +92,6 @@ public class Queue<T>
 		System.out.println("\n======Queue After Dequeue From Rear operation======");
 		Queue.display();
 		System.out.println();
-		System.out.println("\nQueue after enque to front");;
-		Queue.enqueueFront(9);
-		Queue.display();
+	
 	}
 }

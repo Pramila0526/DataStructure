@@ -78,7 +78,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
 		@SuppressWarnings("rawtypes")
 		BinarySearchTree<?> tree=new BinarySearchTree();
 		System.out.println("Enter the Number of Nodes");
-		int n=Utility.IntegerInput();
+		int n=Utility.integerInput();
 		System.out.println("Possible Number of Nodes are");
 		System.out.println(possibleNodes(n)); 
 		
