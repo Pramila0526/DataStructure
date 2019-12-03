@@ -14,9 +14,12 @@ public class PalindromeChecker
 		
 		System.out.println("Enter the String");
 		String s=Utility.stringInput();
+		
+		String a=s.toLowerCase();
+		
 		for(int i=0;i<s.length();i++)
 		{
-		char myString=s.charAt(i);
+		char myString=a.charAt(i);
 		QueueUsingLLUtility.enqueueRear(myString);
 	    }
 		

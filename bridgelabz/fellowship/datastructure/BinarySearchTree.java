@@ -1,4 +1,5 @@
 package com.bridgelabz.fellowship.datastructure;
+
 import com.bridgelabz.fellowship.utility.Utility;
 
 public class BinarySearchTree<T extends Comparable<T>> {
@@ -7,11 +8,13 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
 	@SuppressWarnings("hiding")
 	public class Node<T> {
-		T data;
+		public T data;
 		Node<T> left;
 		Node<T> right;
+		@SuppressWarnings("rawtypes")
+		public Node next;
 
-		Node(T data) {
+		public Node(T data) {
 			this.data = data;
 			this.left = null;
 			this.right = null;

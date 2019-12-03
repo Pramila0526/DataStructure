@@ -11,10 +11,10 @@ public class UnOrderedSearch<T> {
 
 	public class Node 
 	{
-		T data;
-		Node next;
+		public T data;
+		public Node next;
 
-		Node(T data2) {
+		public Node(T data2) {
 			data = data2;
 			next = null;
 		}

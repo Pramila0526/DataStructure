@@ -44,20 +44,23 @@ public class Stack<T>
 			System.out.println("**No ELements to Display**");
 		}
 	}
+	@SuppressWarnings("static-access")
 	public static void main(String[] args) {
-		Stack.push(5);
-		Stack.push(6);
-		Stack.push(7);
+		@SuppressWarnings("rawtypes")
+		Stack st=new Stack();
+		st.push("a");
+		st.push("b");
+		st.push("c");
 		System.out.println();
-		System.out.println("=====Elements After PUSH Operation=====");
+		System.out.println("=====Elements After push Operation=====");
 		System.out.println();
-		Stack.display();
+		st.display();
 		
-		Stack.pop();
+		st.pop();
 		System.out.println();
-		System.out.println("=====Elements After POP Operation=====");
+		System.out.println("=====Elements After pop Operation=====");
 		System.out.println();
-		Stack.display();
+		st.display();
 		
 		}
 }

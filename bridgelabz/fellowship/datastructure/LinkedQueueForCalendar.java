@@ -3,54 +3,15 @@ package com.bridgelabz.fellowship.datastructure;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
-class Node
-{
-     int data;
-     Node link;
- 
-    
-    public Node()
-    {
-        link = null;
-        data = 0;
-    }    
-    
-    public Node(int d,Node n)
-    {
-        data = d;
-        link = n;
-    }    
-   
-    public void setLink(Node n)
-    {
-        link = n;
-    }    
-    
-    public void setData(int d)
-    {
-        data = d;
-    }    
-    
-    public Node getLink()
-    {
-        return link;
-    }    
-   
-    public int getData()
-    {
-        return data;
-    }
-}
- 
 
-class LinkedQueue<T>
+class LinkedQueue1<T>
 {
     protected static Node front;
 	protected static Node rear;
     public static int size;
  
   
-    public LinkedQueue()
+    public LinkedQueue1()
     {
         front = null;
         rear = null;
@@ -67,7 +28,7 @@ class LinkedQueue<T>
         return size;
     }    
     
-    public static void insert(int i)
+    public static<T> void insert(int calendar)
     {
         Node new_node = new Node();
         if (rear == null)
@@ -104,7 +65,7 @@ class LinkedQueue<T>
     
     public void display()
     {
-        System.out.print("====Queue=====  ");
+        
         if (size == 0)
         {
             System.out.print("Empty");
@@ -114,15 +75,16 @@ class LinkedQueue<T>
         while (ptr != rear.getLink() )
         {
         
-            System.out.print("|"+ptr.getData());
+            System.out.print(ptr.getData());
             ptr = ptr.getLink();
         }
-        System.out.print("|");        
+        System.out.println();        
     }
 }
+
  
 /*  Class LinkedQueueImplement  */
-public class LinkedQueueUsingSwitch
+public class LinkedQueueForCalendar
 {    
     @SuppressWarnings("static-access")
 	public static void main(String[] args)
@@ -193,6 +155,7 @@ public class LinkedQueueUsingSwitch
         while (ch == 'Y'|| ch == 'y');                                                            
     }
 
+	
 	
 
 	
