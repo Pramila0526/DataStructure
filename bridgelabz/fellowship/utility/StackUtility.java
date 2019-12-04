@@ -96,7 +96,7 @@ public class StackUtility<T>
 		return count;
 	}
 	@SuppressWarnings("unchecked")
-	public static <T> void printStack() {
+	public static <T> void display() {
 		
 		Node<T> temp = top;
 		@SuppressWarnings("unused")

@@ -107,7 +107,7 @@ public class QueueUtility<T>
 			
 			
 			@SuppressWarnings({ "rawtypes" })
-			public static void printQueue()
+			public static void display()
 			{
 				if(!isEmpty())
 				{

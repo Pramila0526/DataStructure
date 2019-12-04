@@ -9,39 +9,38 @@ public class BankingSimulation
 	{
 
 		System.out.println("Enter the number of users you want to register");
-		int n = Utility.integerInput();
-		if(n < 0) //if input is less than 0
+		int numberOfUsers=Utility.integerInput();
+	    if(numberOfUsers < 0) //if input is less than 0
 		{
 			System.out.println("Please Enter positive number");
-			System.out.println("Enter account Number");
-			n = Utility.integerInput();
+			System.out.println("\nEnter the number of users you want to register");
+			numberOfUsers= Utility.integerInput();
 		}
-		int accNo;
-		int balance;
-		String Uname;
-		for (int i = 1; i <= n; i++) 
+		
+		
+		for (int i = 1; i <= numberOfUsers; i++) 
 		{
-			System.out.println("Enter Account number ");
-			accNo = Utility.integerInput();
+			System.out.println("Enter the Account number ");
+			int accNo = Utility.integerInput();
 			
 			if (accNo < 0) //if input is less than 0
 			{
 				System.out.println("Please Enter possitive number");
-				System.out.println("Enter the account Number");
-				accNo = Utility.integerInput();
+				System.out.println("Enter the Account Number");
+				 accNo = Utility.integerInput();
 			}
 			System.out.println("Enter User Name");
-			Uname = Utility.stringInput();
+			String userName = Utility.stringInput();
 			System.out.println("Enter Balance ");
-			balance = Utility.integerInput();
-			QueueForBankingSimulationUtility.addUser(accNo, Uname, balance);
+			int balance = Utility.integerInput();
+			QueueForBankingSimulationUtility.addUser(accNo, userName, balance);
 		}
 		
 		QueueForBankingSimulationUtility.show();
 		System.out.println();
-		System.out.println("Enter the Account Number  for operation");
-		int acc = Utility.integerInput();
-		QueueForBankingSimulationUtility.search(acc);
+		System.out.println("\nEnter the Account Number  for operation");
+		int account = Utility.integerInput();
+		QueueForBankingSimulationUtility.search(account);
+	}
 	}
 
-}

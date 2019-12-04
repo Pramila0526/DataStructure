@@ -1,6 +1,6 @@
 package com.bridgelabz.fellowship.datastructure;
 
-import com.bridgelabz.fellowship.utility.QueueUtility;
+
 import com.bridgelabz.fellowship.utility.Utility;
 
 public class PrimeAnagramUsingQueue
@@ -18,37 +18,9 @@ public class PrimeAnagramUsingQueue
 			  count++;
 			  i++;
 		  }
-		 isAnagram(arr,count);
+		 Utility.isAnagram2(arr,count);
 		
 	  }
 
-	public static void isAnagram(int a[],int count)
-	{
-	 String s1,s2;
-	 int count1=0;
-	 boolean status;
 	
-	  for(int i=0;i<count;i++)
-	  {	    
-			  s1= String.valueOf(a[i]);
-			  for(int j=i;j<count;j++)
-			  {   if(i!=j)
-			  	{ 
-				 	
-					  s2=String.valueOf(a[j]);
-					  status=Utility.isStringAnagram(s1, s2);
-					  if(status==true)
-					  {   count1=count1+2;
-					  	 QueueUtility.enqueue(s1);
-					  	 QueueUtility.enqueue(s2);
-					  }
-					  
-			  		}			  
-			
-			  }
-			  
-       }
-	  
-	  QueueUtility.printQueue();
-	}
 }

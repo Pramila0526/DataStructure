@@ -86,6 +86,36 @@ public static int[] primeSeries(int num)
 	return a;
 
 }
+
+/****Prime in range*****/
+public static int[] primeInRange(int limit) {
+	@SuppressWarnings("unused")
+	String s = "";
+
+	boolean isPrime;
+	int count = 0;
+	@SuppressWarnings("unused")
+	int k=0;
+   int a[]=new int[limit];
+	for (int number = 1; number <= limit; number++) {
+		isPrime = true;
+
+		for (int i = 2; i <= number - 1; i++) {
+			if ((number % i) == 0)
+				isPrime = false;
+		}
+
+		if (isPrime) {
+			//System.out.println(number);
+			a[count]=number;
+			k++;
+		}
+	}
+	//System.out.println();
+	//System.out.println("Prime Count" + count);
+	return null;
+
+}
 /******Queue Using LinkedList*****/
 
 @SuppressWarnings("hiding")
@@ -317,28 +347,28 @@ public static<T> boolean isStringAnagram(T s12, T s22)
 
 		String calender[][] = new String[7][7];
 		int day = dayOfWeek(1, month, year);
-		String dayofWeek[] = { "Sun", "Mon", "Tues", "Wednes", "Thurs", "Fri", "Sat" };
+		String daysofWeek[] = { "Sun", "Mon", "Tues", "Wednes", "Thurs", "Fri", "Sat" };
 		int daysofmonth[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 		int days = daysofmonth[month-1];
 		if(month==2 && Utility.leap2(year))
 		{
-			daysofmonth[month]=29;
+			days=29;
 		}
-		int k = 1;
+		int k = 1;   //this k is for printing the dates till the limit ex.31 or 30
 		int flag = 0;
 		for (int i = 0; i < 7; i++) 
 		{
 			for (int j = 0; j < 7; j++) 
 			{
-				if (k <= days) 
+				if (k <= days) //checking whether the days are less than or equal to the limit of daysOfMonth[]
 				{
 					if (i == 0)
 					{
-						calender[i][j] = dayofWeek[j];
+						calender[i][j] = daysofWeek[j];
 					} else if (day == j) 
 					{
 						calender[i][j] = String.valueOf(k);
-						day++;
+						day++;      
 						k++;
 						flag = 1;
 					} else
@@ -352,7 +382,8 @@ public static<T> boolean isStringAnagram(T s12, T s22)
 				}
 
 			}
-			if (flag == 1) 
+			if (flag == 1)    //this is for printing spaces after the entering of all days 
+				             //otherwise it prints null 
 			{
 				day = 0;
 			}
@@ -360,5 +391,107 @@ public static<T> boolean isStringAnagram(T s12, T s22)
 		}
 		return calender;
 	}
+	/*****Anagram for limit*****/
+
+	public static void isAnagram(int a[],int count)
+	{
+	 String s1 = null,s2 = null;
+	 int count1=0;
+	 @SuppressWarnings("unused")
+	int p=0;
+	 boolean status;
 	
+	  for(int i=0;i<count;i++)
+	  {	    
+			  s1= String.valueOf(a[i]);
+			  for(int j=i;j<count;j++)
+			  {   if(i!=j)
+			  	{ 
+				 	
+					  s2=String.valueOf(a[j]);
+					  status=Utility.isStringAnagram(s1, s2);
+					  if(status==true)
+					  {   count1=count1+2;
+					  	
+					  	 System.out.print(s1+ " ");
+					  	 p++;
+					  	 System.out.print(s2+ " ");
+					  	 p++;
+					  	if((i+j)%2==0)
+					  	{
+					  		p+=100;
+					  		System.out.println();
+					  	}
+					  }
+				   }
+			    }
+	        }  
+	  }
+
+	/*****is anagram for stack*****/
+	@SuppressWarnings("unchecked")
+	public static<T> void isAnagram1(int[] arr,int count)
+	{
+	 T s1,s2;
+	 int count1=0;
+	 boolean flag;
+	
+	  for(int i=0;i<count;i++)
+	  {	    
+			  s1= (T) String.valueOf(arr[i]);
+			  for(int j=i;j<count;j++)
+			  {   if(i!=j)
+			  	{ 
+				 	//System.out.println(i+" "+j);
+					  s2=(T) String.valueOf(arr[j]);
+					  flag=Utility.isStringAnagram(s1, s2);
+					  if(flag==true)
+					  {  
+						  count1=count1+1;
+					  	 StackUtility.push(s1);
+					  	 StackUtility.push(s2);
+					 
+					  }
+					  
+			  		
+                   }			  
+			
+			  }
+			  
+       }
+	  
+	  StackUtility.display();
+	}
+	
+	/*****Prime anagram for queue*****/
+	
+	public static void isAnagram2(int a[],int count)
+	{
+	 String s1,s2;
+	 int count1=0;
+	 boolean status;
+	
+	  for(int i=0;i<count;i++)
+	  {	    
+			  s1= String.valueOf(a[i]);
+			  for(int j=i;j<count;j++)
+			  {   if(i!=j)
+			  	{ 
+				 	
+					  s2=String.valueOf(a[j]);
+					  status=Utility.isStringAnagram(s1, s2);
+					  if(status==true)
+					  {   count1=count1+2;
+					  	 QueueUtility.enqueue(s1);
+					  	 QueueUtility.enqueue(s2);
+					  }
+					  
+			  		}			  
+			
+			  }
+			  
+       }
+	  
+	  QueueUtility.display();
+	}
 }
